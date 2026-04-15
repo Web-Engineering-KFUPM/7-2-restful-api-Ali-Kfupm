@@ -4,6 +4,16 @@ import cors from "cors";
 // import dotenv and load environment variables from .env
 import dotenv from "dotenv";
 dotenv.config();
+import mongoose from "mongoose";
+
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => {
+    console.log("Mongo connected");
+  })
+  .catch((err) => {
+    console.error("Connection error:", err.message);
+  });
+
 
 import { connectDB } from "./db.js";
 import { Song } from "./models/song.model.js";
