@@ -27,7 +27,6 @@ app.use(express.json());
 await connectDB(process.env.MONGO_URL);
 
 // api/songs (Read all songs)
-import { Song } from "./models/song.model.js";
 app.post("/api/songs", async (req, res) => {
   try {
     const { title = "", artist = "", year } = req.body || {};
